@@ -5,5 +5,5 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   // Be careful: using "" instead of ''
-  base: 'ReactVitePracticeWeb/'
+  base: "/ReactVitePracticeWeb/"
 })
