@@ -1,4 +1,7 @@
-import React from "react";
+import styles from './ProductList.module.css';
+import {Link} from 'react-router-dom';
+import Title from './Title';
+
 export default function ProductList() {
   let productList = [
     {
@@ -26,7 +29,7 @@ export default function ProductList() {
       id: 4,
       name: "Watermelon",
       price: 20,
-      image: "watermelon.jpeg",
+      image: "watermelon.png",
       description: "Juicy watermelon is here for you",
     },
     {
@@ -40,14 +43,17 @@ export default function ProductList() {
 
   return (
     <div>
+      <Title mainTitle="Please choose fruits to buy"/>
       {productList.map(product =>
         (
-        <div key={product.id}>
+        <div className={styles.productBorder} key={product.id}>
           {product.name}
           <br />
           {product.price}
           <br />
-          <img src={process.env.PUBLIC_URL + '/img/' + product.image}></img>
+          <Link to={import.meta.env.BASE_URL + 'Product/' + product.id}>
+          <img src={import.meta.env.BASE_URL + '/img/' + product.image}></img>
+          </Link>
           <br />
           {product.description}
           <br />
