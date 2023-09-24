@@ -2,6 +2,7 @@ import styles from "./ProductList.module.css";
 import { Link } from "react-router-dom";
 import Title from "./Title";
 import { useState, useEffect } from "react"; // react hook
+import QuantityBtn from "./QuantityBtn";
 
 export default function ProductList() {
   let [productList, setProductList] = useState([]);
@@ -32,6 +33,7 @@ export default function ProductList() {
           </Link>
           <br />
           {product.description}
+          <QuantityBtn />
           <br />
         </div>
       ))}

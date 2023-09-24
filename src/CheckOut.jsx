@@ -1,3 +1,4 @@
+import QuantityBtn from "./QuantityBtn";
 import Title from "./Title";
 import { Link } from "react-router-dom";
 export default function CheckOut() {
@@ -60,6 +61,8 @@ export default function CheckOut() {
               <div>{product.quantity}</div>
               <div>{product.name}</div>
               <div>{product.description}</div>
+              <div>Quantity</div>
+              <QuantityBtn />
               </div>
             ))}
           </section>
