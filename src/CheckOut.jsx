@@ -1,39 +1,11 @@
 import QuantityBtn from "./QuantityBtn";
 import Title from "./Title";
 import { Link } from "react-router-dom";
-export default function CheckOut() {
-  let cartItem = [
-    {
-      cartItems: [
-        {
-          id: 2,
-          name: "Banana",
-          price: 4,
-          image: "banana.jpeg",
-          description: "Bananas are good for you",
-          quantity: 3,
-        },
-        {
-          id: 3,
-          name: "Peach",
-          price: 19,
-          image: "peach.jpeg",
-          description: "Peach is a good fruit",
-          quantity: 2,
-        },
-        {
-          id: 4,
-          name: "Watermelon",
-          price: 20,
-          image: "watermelon.png",
-          description: "Juicy watermelon is here for you",
-          quantity: 1,
-        },
-      ],
-    },
-  ];
+import { CartContext } from "./CartContext";
+import { useContext } from "react";
 
-  let cartItems = cartItem[0].cartItems;
+export default function CheckOut() {
+  let {cartItems} = useContext(CartContext);
   let isCartEmpty = cartItems.length <= 0;
   let grandTotal = cartItems.reduce((total, product)=>{
     return total += product.price * product.quantity;
@@ -62,7 +34,7 @@ export default function CheckOut() {
               <div>{product.name}</div>
               <div>{product.description}</div>
               <div>Quantity</div>
-              <QuantityBtn />
+              <QuantityBtn productInfo={product}/>
               </div>
             ))}
           </section>

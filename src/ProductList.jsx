@@ -1,8 +1,9 @@
 import styles from "./ProductList.module.css";
 import { Link } from "react-router-dom";
 import Title from "./Title";
-import { useState, useEffect } from "react"; // react hook
+import { useState, useEffect, useContext } from "react"; // react hook
 import QuantityBtn from "./QuantityBtn";
+import { CartContext } from "./CartContext";
 
 export default function ProductList() {
   let [productList, setProductList] = useState([]);
@@ -18,7 +19,6 @@ export default function ProductList() {
         setProductList(data);
       });
   }, []);
-
   return (
     <div>
       <Title mainTitle="Please choose fruits to buy" />
@@ -33,7 +33,7 @@ export default function ProductList() {
           </Link>
           <br />
           {product.description}
-          <QuantityBtn />
+          <QuantityBtn productInfo={product}/>
           <br />
         </div>
       ))}
