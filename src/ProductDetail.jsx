@@ -26,14 +26,28 @@ export default function ProductDetail() {
   //const {cartItems} = useContext(CartContext);
 
   return (
-    <div>
+    <>
+      <div className='ProductDetail'>
       <Title mainTitle={ProductDetail.name+ "Product Detail"}/>
+      <table width="100%">
+      <tbody>
+      <tr>
+      <td align="right">
       <img src={import.meta.env.BASE_URL + "img/" + ProductDetail.image} alt={ProductDetail.name}></img>
+      </td>
+      <td width="45%" padding="10px">
       <p>Name: {ProductDetail.name}</p>
       <p>Price: {ProductDetail.price}</p>
       <p>Description: {ProductDetail.description}</p>
       <QuantityBtn productInfo={ProductDetail}/>
-      <Link to={import.meta.env.BASE_URL}>Back to Home</Link>
-    </div>
+      </td>
+      </tr>
+      </tbody>
+      </table>
+      </div>
+      <Link to={import.meta.env.BASE_URL}>
+      <div className="backToGoodsListBtn">Back to Product List</div>
+      </Link>
+    </>
   )
 }

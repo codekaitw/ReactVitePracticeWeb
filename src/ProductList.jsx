@@ -20,23 +20,23 @@ export default function ProductList() {
       });
   }, []);
   return (
-    <div>
+    <>
       <Title mainTitle="Please choose fruits to buy" />
+      <div className="container">
       {productList.map((product) => (
-        <div className={styles.productBorder} key={product.id}>
-          {product.name}
-          <br />
-          {product.price}
-          <br />
+        <div key={product.id}>
+          <div className="containerItem">
           <Link to={import.meta.env.BASE_URL + "Product/" + product.id}>
             <img src={import.meta.env.BASE_URL + "/img/" + product.image}></img>
           </Link>
-          <br />
-          {product.description}
+          <div className="productName">
+            {product.name} - $ {product.price} / Qty
+            </div>
           <QuantityBtn productInfo={product}/>
-          <br />
+        </div>
         </div>
       ))}
-    </div>
+      </div>
+    </>
   );
 }

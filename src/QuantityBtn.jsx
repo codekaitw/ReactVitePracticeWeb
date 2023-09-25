@@ -14,17 +14,15 @@ export default function QuantityBtn({ productInfo }) {
   );
 
   const handleAdd = () => {
-    if (productIndexInCart === -1) 
-    {
-      setCartItems(
-        [
+    if (productIndexInCart === -1) {
+      setCartItems([
         {
-          "id": productInfo.id,
-          "name": productInfo.name,
-          "price": productInfo.price,
-          "image": productInfo.image,
-          "description": productInfo.description,
-          "quantity": 1,
+          id: productInfo.id,
+          name: productInfo.name,
+          price: productInfo.price,
+          image: productInfo.image,
+          description: productInfo.description,
+          quantity: 1,
         },
         ...cartItems,
       ]);
@@ -48,16 +46,22 @@ export default function QuantityBtn({ productInfo }) {
     setNumInCart(numInCart - 1);
   };
   return (
-    <>
+    <div className="addToCart">
       {numInCart <= 0 ? (
-        <div onClick={handleAdd}>Add to cart</div>
+        <div className="addToCartBtn" onClick={handleAdd}>
+          Add to cart
+        </div>
       ) : (
         <div>
-          <span onClick={handleSub}>-</span>
-          <span>{numInCart} Qty</span>
-          <span onClick={handleAdd}>+</span>
+          <span className="subtractBtn" onClick={handleSub}>
+            -
+          </span>
+          <span>{numInCart}</span>
+          <span className="addBtn" onClick={handleAdd}>
+            +
+          </span>
         </div>
       )}
-    </>
+    </div>
   );
 }
