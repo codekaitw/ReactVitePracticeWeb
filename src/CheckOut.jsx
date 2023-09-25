@@ -19,7 +19,9 @@ export default function CheckOut() {
       {isCartEmpty && (
         <>
           <div className="nothingInCart">Cart is empty</div>
-          <Link to="/ReactVitePracticeWeb">Back to Home to Buy</Link>
+          <Link to="/ReactVitePracticeWeb">
+            <button>Go to Buy</button>
+          </Link>
         </>
       )}
       {!isCartEmpty && (
