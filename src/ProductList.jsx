@@ -1,9 +1,9 @@
 import styles from "./ProductList.module.css";
 import { Link } from "react-router-dom";
 import Title from "./Title";
-import { useState, useEffect, useContext } from "react"; // react hook
+import { Fragment, useState, useEffect } from "react"; // react hook
 import QuantityBtn from "./QuantityBtn";
-import { CartContext } from "./CartContext";
+
 
 export default function ProductList() {
   let [productList, setProductList] = useState([]);
@@ -24,7 +24,7 @@ export default function ProductList() {
       <Title mainTitle="Please choose fruits to buy" />
       <div className="container">
       {productList.map((product) => (
-        <div key={product.id}>
+        <Fragment key={product.id}>
           <div className="containerItem">
           <Link to={import.meta.env.BASE_URL + "Product/" + product.id}>
             <img src={import.meta.env.BASE_URL + "/img/" + product.image}></img>
@@ -34,7 +34,7 @@ export default function ProductList() {
             </div>
           <QuantityBtn productInfo={product}/>
         </div>
-        </div>
+        </Fragment>
       ))}
       </div>
     </>
