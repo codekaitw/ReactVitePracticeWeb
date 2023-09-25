@@ -13,7 +13,7 @@ export default function ProductList() {
     // 1: if no second argument, it will run every time component re-render(change useState), it will trigger this callback
     // 2: <common use to fetch data>if second argument(Dependency Array) is empty array, it will run(render) only once, it will not trigger this callback
     // 3: <use to detect parameter change>if second argument(Dependency Array) is not empty array(have parameter), it will re-render when parameter changed.
-    fetch('./react-basic-product.json')
+    fetch('./src/react-basic-product.json')
       .then((response) => response.json())
       .then((data) => {
         setProductList(data);
